@@ -1,10 +1,10 @@
 NL Election Maps (unofficial)
 ---
 
-Municipality redistricting elections in The Netherlands are alyways held before the redistricting takes place.
-New maps are published by the Kadaster (Dutch Cadastre) &amp; <abbr title="Centraal Bureau voor Statistiek">CBS</abbr> (Dutch Statistical Office) after the redistricting [as open data](https://www.pdok.nl/-/cbs-gebiedsindelingen-geactualiseerd).
+Municipality redistricting elections in The Netherlands are always held before the redistricting takes place.
+New maps are published by the Kadaster (Dutch Cadaster) &amp; <abbr title="Centraal Bureau voor Statistiek">CBS</abbr> (Dutch Statistical Office) after the redistricting [as open data](https://www.pdok.nl/-/cbs-gebiedsindelingen-geactualiseerd).
 
-De Kiesraad (Dutch Electoral Council, a Electoral Management Body), needs to create these maps for the [election result website](https://www.verkiezingsuitslagen.nl/).
+De Kiesraad (Dutch Electoral Council, an Electoral Management Body), needs to create these maps for the [election result website](https://www.verkiezingsuitslagen.nl/).
 
 ## Tools
 - [curl](https://curl.se/)
@@ -15,7 +15,7 @@ Note: this generates GeoJSON and <abbr title="Scalable Vector Graphics">SVG</abb
 TopoJSON would compress this even better, since almost all paths are stored in two seperate polygons in the geo.json variant. However our use cases only use GeoJSON and SVG.
 
 ## The procedure
-1. Download latest generalized municipality boundries from CBS (in RDnew and <abbr title="World Geodetic System (WGS84)">WGS84</abbr> for testing / previewing results in tools like [geojson.io](https://geojson.io/)).
+1. Download latest generalized municipality boundaries from CBS (in RDnew and <abbr title="World Geodetic System (WGS84)">WGS84</abbr> for testing / previewing results in tools like [geojson.io](https://geojson.io/)).
 2. Find out which municipalities need merging.
 3. Update municipality names in GeoJSON to the new names.
 4. PostGIS Union municipalities with the same name and codes.
@@ -95,3 +95,5 @@ For the code, [If it is public money, it should be public code as well](https://
 ## ToDo
 
 - [ ] Move to full CC0 by changing the map source, this can be done by using [the raw 851MB GPKG](https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/atom/cbsgebiedsindelingen.xml) which is not generalized.
+- [ ] Simpler code
+- [ ] Automate with GitHub Actions
