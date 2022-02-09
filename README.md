@@ -12,7 +12,7 @@ De Kiesraad (Dutch Electoral Council, an Electoral Management Body), needs to cr
 - [gdal](https://gdal.org/) ogr2ogr
 
 Note: this generates GeoJSON and <abbr title="Scalable Vector Graphics">SVG</abbr>.
-TopoJSON would compress this even better, since almost all paths are stored in two seperate polygons in the geo.json variant. However our use cases only use GeoJSON and SVG.
+TopoJSON would compress this even better, since almost all paths are stored in two seperate polygons in the GeoJSON variant. However our use cases only use GeoJSON and SVG.
 
 ## The procedure
 1. Download latest generalized municipality boundaries from CBS (in RDnew and <abbr title="World Geodetic System (WGS84)">WGS84</abbr> for testing / previewing results in tools like [geojson.io](https://geojson.io/)).
@@ -85,6 +85,22 @@ curl 'https://geodata.nationaalgeoregister.nl/cbsgebiedsindelingen/wfs?request=G
 
 # 5:
 jq '.features=(.features|map(.properties|={name:.statnaam,regiocode:"G\(.statcode[2:])"}|.id|=empty|.geometry.coordinates|=map_values(map_values(map_values(map_values(floor))))))' 2021.geo.json -c > 2021.min.geo.json
+```
+
+## Kieskringen during national elections (EK/EP/TK)
+
+Also using the tools:
+- [pup](https://github.com/EricChiang/pup)
+- [sed](https://www.gnu.org/software/sed/)
+
+```bash
+# Parse law text to JSON
+curl -sSfL 'https://wetten.overheid.nl/BWBR0004627/' | pup '#Bijlage table > tbody > tr json{}' | sed 's/\\u0026#39;/\\u0027/g' | jq 'map(.children|map_values(.children[0].text)|{kieskringnummer:.[0][:-1]|tonumber,hoofdstembureau:.[2],gebied:(.[1]|if startswith("De provincie ") then {provincie:.[13:]|rtrimstr(".")} elif startswith("De gemeente ") then {gemeenten:[.[12:]|rtrimstr(".")]} elif startswith("De gemeenten van de provincie ") then (.[30:]|capture("^(?<provincie>[^ ]+) die niet tot (de )?kieskring(en)? (?<nietInKieskring>[0-9,of ]+) behoren\\.$")|.nietInKieskring|=(split("(, | of )";"g")|map_values(tonumber))) elif startswith("De gemeenten ") then {gemeenten:(.[13:]|rtrimstr(".")|if contains(", ") then split(", ") else split(" en ") end)} elif startswith("De openbare lichamen ") then {openbareLichamen:.[21:]|rtrimstr(".")|split("(, | en )";"g")} else error("Unhandled case: \u0027\(.)\u0027") end)}) as $lookup|$lookup|map_values(if .gebied.nietInKieskring? then (.gebied|={provincie,exclusief:(.nietInKieskring as $search|$lookup|map(select([.kieskringnummer]|inside($search))|.gebied.gemeenten)|add)}) else . end)' > kieskringen_2022-01-01.json
+# Download the CC-0 administrative boundaries
+curl 'https://service.pdok.nl/kadaster/bestuurlijkegebieden/wfs/v1_0?request=GetFeature&service=WFS&version=1.1.0&typeName=bestuurlijkegebieden:Gemeentegebied&outputFormat=application/json;%20subtype%3Dgeojson' -o gemeente_grenzen.geo.json --compressed
+# Match to geo
+jq '.features as $geo|$k[0]|map_values(.+{geo:(.gebied as $g|$geo|if $g.provincie? then map(select(.properties.ligtInProvincieNaam==$g.provincie and ([.properties.naam]|inside($g.exclusief // [])|not)).properties.naam)|sort else map(select([.properties.naam]|inside($g.gemeenten // [])).properties.naam)|sort end)})' gemeente_grenzen.geo.json --slurpfile k kieskringen_2022-01-01.json
+# Sanity check, add |map_values(.geo)|add|length and the result is 345, which is correct.
 ```
 
 ## License

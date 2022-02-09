@@ -1,0 +1,333 @@
+[
+  {
+    "kieskringnummer": 1,
+    "hoofdstembureau": "Groningen",
+    "gebied": {
+      "provincie": "Groningen"
+    }
+  },
+  {
+    "kieskringnummer": 2,
+    "hoofdstembureau": "Leeuwarden",
+    "gebied": {
+      "provincie": "Fryslân"
+    }
+  },
+  {
+    "kieskringnummer": 3,
+    "hoofdstembureau": "Assen",
+    "gebied": {
+      "provincie": "Drenthe"
+    }
+  },
+  {
+    "kieskringnummer": 4,
+    "hoofdstembureau": "Zwolle",
+    "gebied": {
+      "provincie": "Overijssel"
+    }
+  },
+  {
+    "kieskringnummer": 5,
+    "hoofdstembureau": "Lelystad",
+    "gebied": {
+      "provincie": "Flevoland"
+    }
+  },
+  {
+    "kieskringnummer": 6,
+    "hoofdstembureau": "Nijmegen",
+    "gebied": {
+      "gemeenten": [
+        "Berg en Dal",
+        "Beuningen",
+        "Buren",
+        "Culemborg",
+        "Druten",
+        "Heumen",
+        "Maasdriel",
+        "Neder-Betuwe",
+        "Nijmegen",
+        "Tiel",
+        "West Betuwe",
+        "West Maas en Waal",
+        "Wijchen",
+        "Zaltbommel"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 7,
+    "hoofdstembureau": "Arnhem",
+    "gebied": {
+      "provincie": "Gelderland",
+      "exclusief": [
+        "Berg en Dal",
+        "Beuningen",
+        "Buren",
+        "Culemborg",
+        "Druten",
+        "Heumen",
+        "Maasdriel",
+        "Neder-Betuwe",
+        "Nijmegen",
+        "Tiel",
+        "West Betuwe",
+        "West Maas en Waal",
+        "Wijchen",
+        "Zaltbommel"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 8,
+    "hoofdstembureau": "Utrecht",
+    "gebied": {
+      "provincie": "Utrecht"
+    }
+  },
+  {
+    "kieskringnummer": 9,
+    "hoofdstembureau": "Amsterdam",
+    "gebied": {
+      "gemeenten": [
+        "Amsterdam",
+        "Weesp"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 10,
+    "hoofdstembureau": "Haarlem",
+    "gebied": {
+      "gemeenten": [
+        "Aalsmeer",
+        "Amstelveen",
+        "Beverwijk",
+        "Blaricum",
+        "Bloemendaal",
+        "Diemen",
+        "Gooise Meren",
+        "Haarlem",
+        "Haarlemmermeer",
+        "Heemskerk",
+        "Heemstede",
+        "Hilversum",
+        "Huizen",
+        "Laren",
+        "Ouder-Amstel",
+        "Uithoorn",
+        "Velsen",
+        "Wijdemeren",
+        "Zandvoort"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 11,
+    "hoofdstembureau": "Den Helder",
+    "gebied": {
+      "provincie": "Noord-Holland",
+      "exclusief": [
+        "Amsterdam",
+        "Weesp",
+        "Aalsmeer",
+        "Amstelveen",
+        "Beverwijk",
+        "Blaricum",
+        "Bloemendaal",
+        "Diemen",
+        "Gooise Meren",
+        "Haarlem",
+        "Haarlemmermeer",
+        "Heemskerk",
+        "Heemstede",
+        "Hilversum",
+        "Huizen",
+        "Laren",
+        "Ouder-Amstel",
+        "Uithoorn",
+        "Velsen",
+        "Wijdemeren",
+        "Zandvoort"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 12,
+    "hoofdstembureau": "'s-Gravenhage",
+    "gebied": {
+      "gemeenten": [
+        "'s-Gravenhage"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 13,
+    "hoofdstembureau": "Rotterdam",
+    "gebied": {
+      "gemeenten": [
+        "Rotterdam"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 14,
+    "hoofdstembureau": "Dordrecht",
+    "gebied": {
+      "gemeenten": [
+        "Alblasserdam",
+        "Albrandswaard",
+        "Barendrecht",
+        "Brielle",
+        "Delft",
+        "Dordrecht",
+        "Goeree-Overflakkee",
+        "Gorinchem",
+        "Hardinxveld-Giessendam",
+        "Hellevoetsluis",
+        "Hendrik-Ido-Ambacht",
+        "Hoeksche Waard",
+        "Maassluis",
+        "Midden-Delfland",
+        "Molenlanden",
+        "Nissewaard",
+        "Papendrecht",
+        "Ridderkerk",
+        "Rijswijk",
+        "Schiedam",
+        "Sliedrecht",
+        "Vlaardingen",
+        "Westland",
+        "Westvoorne",
+        "Zwijndrecht"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 15,
+    "hoofdstembureau": "Leiden",
+    "gebied": {
+      "provincie": "Zuid-Holland",
+      "exclusief": [
+        "'s-Gravenhage",
+        "Rotterdam",
+        "Alblasserdam",
+        "Albrandswaard",
+        "Barendrecht",
+        "Brielle",
+        "Delft",
+        "Dordrecht",
+        "Goeree-Overflakkee",
+        "Gorinchem",
+        "Hardinxveld-Giessendam",
+        "Hellevoetsluis",
+        "Hendrik-Ido-Ambacht",
+        "Hoeksche Waard",
+        "Maassluis",
+        "Midden-Delfland",
+        "Molenlanden",
+        "Nissewaard",
+        "Papendrecht",
+        "Ridderkerk",
+        "Rijswijk",
+        "Schiedam",
+        "Sliedrecht",
+        "Vlaardingen",
+        "Westland",
+        "Westvoorne",
+        "Zwijndrecht"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 16,
+    "hoofdstembureau": "Middelburg",
+    "gebied": {
+      "provincie": "Zeeland"
+    }
+  },
+  {
+    "kieskringnummer": 17,
+    "hoofdstembureau": "Tilburg",
+    "gebied": {
+      "gemeenten": [
+        "Alphen-Chaam",
+        "Altena",
+        "Baarle-Nassau",
+        "Bergen op Zoom",
+        "Breda",
+        "Dongen",
+        "Drimmelen",
+        "Etten-Leur",
+        "Geertruidenberg",
+        "Gilze en Rijen",
+        "Goirle",
+        "Halderberge",
+        "Hilvarenbeek",
+        "Loon op Zand",
+        "Moerdijk",
+        "Oisterwijk",
+        "Oosterhout",
+        "Roosendaal",
+        "Rucphen",
+        "Steenbergen",
+        "Tilburg",
+        "Waalwijk",
+        "Woensdrecht",
+        "Zundert"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 18,
+    "hoofdstembureau": "'s-Hertogenbosch",
+    "gebied": {
+      "provincie": "Noord-Brabant",
+      "exclusief": [
+        "Alphen-Chaam",
+        "Altena",
+        "Baarle-Nassau",
+        "Bergen op Zoom",
+        "Breda",
+        "Dongen",
+        "Drimmelen",
+        "Etten-Leur",
+        "Geertruidenberg",
+        "Gilze en Rijen",
+        "Goirle",
+        "Halderberge",
+        "Hilvarenbeek",
+        "Loon op Zand",
+        "Moerdijk",
+        "Oisterwijk",
+        "Oosterhout",
+        "Roosendaal",
+        "Rucphen",
+        "Steenbergen",
+        "Tilburg",
+        "Waalwijk",
+        "Woensdrecht",
+        "Zundert"
+      ]
+    }
+  },
+  {
+    "kieskringnummer": 19,
+    "hoofdstembureau": "Maastricht",
+    "gebied": {
+      "provincie": "Limburg"
+    }
+  },
+  {
+    "kieskringnummer": 20,
+    "hoofdstembureau": "Bonaire",
+    "gebied": {
+      "openbareLichamen": [
+        "Bonaire",
+        "Sint Eustatius",
+        "Saba"
+      ]
+    }
+  }
+]
