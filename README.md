@@ -1,8 +1,8 @@
 NL Election Maps (unofficial)
 ---
 
-Municipality redistricting elections in The Netherlands are always held before the redistricting takes place.
-New maps are published by the Kadaster (Dutch Cadaster) &amp; <abbr title="Centraal Bureau voor Statistiek">CBS</abbr> (Dutch Statistical Office) after the redistricting [as open data](https://www.pdok.nl/-/cbs-gebiedsindelingen-geactualiseerd).
+Municipality redivision elections in The Netherlands are always held before the redivision takes place.
+New maps are published by the Kadaster (Dutch Cadaster) &amp; <abbr title="Centraal Bureau voor Statistiek">CBS</abbr> (Dutch Statistical Office) after the redivision [as open data](https://www.pdok.nl/-/cbs-gebiedsindelingen-geactualiseerd).
 
 De Kiesraad (Dutch Electoral Council, an Electoral Management Body), needs to create these maps for the [election result website](https://www.verkiezingsuitslagen.nl/).
 
@@ -22,7 +22,7 @@ TopoJSON would compress this even better, since almost all paths are stored in t
 5. Fix the regiocode, floor to shave some bytes and remove name and wrong total. The sample rounds WGS84 to 4 decimals, [about 10 meters](https://wiki.openstreetmap.org/wiki/Precision_of_coordinates#Precision_of_latitudes), RDnew is more byte efficient because it doesn't have the decimal symbol and can have less than 6-7 chars.
 6. Create a SVG for fun.
 
-### Municipality Elections 2022 + Redistricting Amsterdam (GR2022)
+### Municipality Elections 2022 + Redivision Amsterdam (GR2022)
 
 ```bash
 # 1:
@@ -50,7 +50,7 @@ jq -r '"<svg viewBox=\u00270 0 300000 340000\u0027 xmlns=\u0027http://www.w3.org
 SVG Result: \
 [![Election map for GR2022](gr2022.svg)](https://raw.githubusercontent.com/kiesraad/electionmaps/main/gr2022.svg).
 
-### Redistricting Elections (GR20211124)
+### Redivision Elections (GR20211124)
 
 ```bash
 # 1:
@@ -76,7 +76,7 @@ ogr2ogr -sql 'SELECT name, code, ST_UNION(c.geometry) FROM "cbs2022_rdnew_pre_un
 jq '.features=(.features|map(.properties|={name,regiocode:"G\(.code[2:])"}|.id|=empty|.geometry.coordinates|=map_values(map_values(map_values(if type == "array" then map_values(floor) else floor end)))))|.name|=empty|.totalFeatures|=empty' cbs2022_rdnew.geo.json -c > cbs2022.min.geo.json
 ```
 
-### Without redistricting (TK2021)
+### Without redivision (TK2021)
 
 TK2021 case, RDnew only:
 ```bash
